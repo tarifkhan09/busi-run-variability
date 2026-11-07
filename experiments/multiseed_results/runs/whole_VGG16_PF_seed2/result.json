@@ -1,0 +1,50 @@
+{
+ "val_auroc": 0.935483870967742,
+ "test_auroc": 0.9398674242424243,
+ "val_at_0.5": {
+  "tp": 31,
+  "tn": 38,
+  "fp": 28,
+  "fn": 0
+ },
+ "test_at_0.5": {
+  "tp": 32,
+  "tn": 47,
+  "fp": 19,
+  "fn": 0
+ },
+ "thr_val": 0.900060772895813,
+ "test_at_thr": {
+  "tp": 25,
+  "tn": 61,
+  "fp": 5,
+  "fn": 7
+ },
+ "tag": "whole_VGG16_PF_seed2",
+ "backbone": "VGG16",
+ "strategy": "PF",
+ "seed": 2,
+ "data": "/content/ms/BUSI_whole",
+ "note": "whole image, no mask",
+ "freeze": 0.6,
+ "lr": 0.0001,
+ "epochs_run": 50,
+ "best_epoch": 41,
+ "val_loss_at_best": 0.652583122253418,
+ "class_weights": {
+  "0": 0.740983606557377,
+  "1": 1.5374149659863945
+ },
+ "minutes": 9.2,
+ "env": {
+  "python": "3.13.16",
+  "tensorflow": "2.21.0",
+  "keras": "3.13.2",
+  "numpy": "2.4.6",
+  "opencv": "4.14.0",
+  "sklearn": "1.6.1",
+  "gpu": "Tesla T4, 580.82.07",
+  "platform": "Linux-6.6.159+-x86_64-with-glibc2.39",
+  "time": "2026-11-07 15:12:31"
+ }
+}

@@ -1,0 +1,3 @@
+Threshold,AUROC,Accuracy,Sensitivity,Specificity,PPV,NPV,F1,TP,TN,FP,FN,Members
+0.50 (fixed),1.0,1.0,1.0,1.0,1.0,1.0,1.0,32,66,0,0,"Xception_feature_extractor, DenseNet121_feature_extractor, ResNet50_feature_extractor"
+0.711 (val-selected),1.0,1.0,1.0,1.0,1.0,1.0,1.0,32,66,0,0,"Xception_feature_extractor, DenseNet121_feature_extractor, ResNet50_feature_extractor"

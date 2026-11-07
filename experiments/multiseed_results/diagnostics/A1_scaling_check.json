@@ -1,0 +1,52 @@
+{
+ "rescaled_1_255": {
+  "val_auroc": 0.9995112414467253,
+  "test_auroc": 0.9990530303030303,
+  "val_at_0.5": {
+   "tp": 27,
+   "tn": 66,
+   "fp": 0,
+   "fn": 4
+  },
+  "test_at_0.5": {
+   "tp": 30,
+   "tn": 66,
+   "fp": 0,
+   "fn": 2
+  },
+  "thr_val": 0.24047237634658813,
+  "test_at_thr": {
+   "tp": 31,
+   "tn": 65,
+   "fp": 1,
+   "fn": 1
+  },
+  "benign_test_score_mean": 0.07702124863862991,
+  "malignant_test_score_mean": 0.878974199295044
+ },
+ "unscaled_0_255": {
+  "val_auroc": 0.7803030303030303,
+  "test_auroc": 0.7878787878787878,
+  "val_at_0.5": {
+   "tp": 31,
+   "tn": 15,
+   "fp": 51,
+   "fn": 0
+  },
+  "test_at_0.5": {
+   "tp": 32,
+   "tn": 19,
+   "fp": 47,
+   "fn": 0
+  },
+  "thr_val": 0.9999999403953552,
+  "test_at_thr": {
+   "tp": 32,
+   "tn": 38,
+   "fp": 28,
+   "fn": 0
+  },
+  "benign_test_score_mean": 0.7024105191230774,
+  "malignant_test_score_mean": 1.0
+ }
+}

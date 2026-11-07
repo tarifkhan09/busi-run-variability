@@ -1,0 +1,149 @@
+\documentclass[border=1pt]{standalone}
+\usepackage[T1]{fontenc}
+\usepackage{mathptmx}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\definecolor{c1}{RGB}{31,119,180}\definecolor{c2}{RGB}{255,127,14}\definecolor{c3}{RGB}{44,160,44}
+\definecolor{c4}{RGB}{214,39,40}\definecolor{c5}{RGB}{148,103,189}
+\begin{document}
+
+\begin{tikzpicture}
+\begin{axis}[width=8.6cm, height=5.72cm, ymin=-0.7, ymax=11.7,
+  ytick={11,10,9,8,7,6,5,4,3,2,1,0}, yticklabels={{DenseNet121 PF},{Xception PF},{InceptionV3 PF},{ResNet50 PF},{VGG16 PF},{DenseNet121 FT},{Xception FT},{InceptionV3 FT},{ResNet50 FT},{VGG16 FT},{DenseNet121 PF, shape},{VGG16 PF, shape}},
+  xmin=-0.15, xmax=4.6951, xtick={0.0000,0.6931,1.0986,1.7918,2.3979,3.0445,3.9318,4.5951}, xticklabels={0,1,2,5,10,20,50,98},
+  ticklabel style={font=\scriptsize}, label style={font=\footnotesize}, xlabel={Test errors (FP + FN), log scale},
+  xmajorgrids, grid style={black!10}, axis line style={black!70}, tick align=outside,
+  legend cell align=left, legend style={font=\scriptsize, draw=none, legend columns=2, at={(0.5,1.01)}, anchor=south,
+  /tikz/every even column/.append style={column sep=6pt}}]
+
+\draw[densely dotted, black!60] (axis cs:\pgfkeysvalueof{/pgfplots/xmin},1.5) -- (axis cs:\pgfkeysvalueof{/pgfplots/xmax},1.5);
+\draw[densely dotted, black!35] (axis cs:\pgfkeysvalueof{/pgfplots/xmin},6.5) -- (axis cs:\pgfkeysvalueof{/pgfplots/xmax},6.5);
+\draw[c1!35, line width=3pt] (axis cs:0.0000,11) -- (axis cs:1.3863,11);
+\addplot[only marks, mark=o, mark size=1.9pt, c1, forget plot] coordinates {(0.6931,10.940)};
+\addplot[only marks, mark=*, mark size=1.6pt, c1, forget plot] coordinates {(0.6931,10.700)};
+\addplot[only marks, mark=o, mark size=1.9pt, c1, forget plot] coordinates {(0.6931,11.030)};
+\addplot[only marks, mark=*, mark size=1.6pt, c1, forget plot] coordinates {(0.0000,10.790)};
+\addplot[only marks, mark=o, mark size=1.9pt, c1, forget plot] coordinates {(1.3863,11.120)};
+\addplot[only marks, mark=*, mark size=1.6pt, c1, forget plot] coordinates {(0.6931,10.880)};
+\addplot[only marks, mark=o, mark size=1.9pt, c1, forget plot] coordinates {(0.6931,11.210)};
+\addplot[only marks, mark=*, mark size=1.6pt, c1, forget plot] coordinates {(0.0000,10.970)};
+\addplot[only marks, mark=o, mark size=1.9pt, c1, forget plot] coordinates {(0.0000,11.300)};
+\addplot[only marks, mark=*, mark size=1.6pt, c1, forget plot] coordinates {(0.0000,11.060)};
+\draw[c2!35, line width=3pt] (axis cs:0.6931,10) -- (axis cs:1.7918,10);
+\addplot[only marks, mark=o, mark size=1.9pt, c2, forget plot] coordinates {(1.7918,9.940)};
+\addplot[only marks, mark=*, mark size=1.6pt, c2, forget plot] coordinates {(1.3863,9.700)};
+\addplot[only marks, mark=o, mark size=1.9pt, c2, forget plot] coordinates {(0.6931,10.030)};
+\addplot[only marks, mark=*, mark size=1.6pt, c2, forget plot] coordinates {(1.0986,9.790)};
+\addplot[only marks, mark=o, mark size=1.9pt, c2, forget plot] coordinates {(1.0986,10.120)};
+\addplot[only marks, mark=*, mark size=1.6pt, c2, forget plot] coordinates {(1.0986,9.880)};
+\addplot[only marks, mark=o, mark size=1.9pt, c2, forget plot] coordinates {(1.0986,10.210)};
+\addplot[only marks, mark=*, mark size=1.6pt, c2, forget plot] coordinates {(1.6094,9.970)};
+\addplot[only marks, mark=o, mark size=1.9pt, c2, forget plot] coordinates {(1.6094,10.300)};
+\addplot[only marks, mark=*, mark size=1.6pt, c2, forget plot] coordinates {(1.3863,10.060)};
+\draw[c3!35, line width=3pt] (axis cs:0.6931,9) -- (axis cs:1.3863,9);
+\addplot[only marks, mark=o, mark size=1.9pt, c3, forget plot] coordinates {(1.0986,8.940)};
+\addplot[only marks, mark=*, mark size=1.6pt, c3, forget plot] coordinates {(1.0986,8.700)};
+\addplot[only marks, mark=o, mark size=1.9pt, c3, forget plot] coordinates {(1.3863,9.030)};
+\addplot[only marks, mark=*, mark size=1.6pt, c3, forget plot] coordinates {(1.0986,8.790)};
+\addplot[only marks, mark=o, mark size=1.9pt, c3, forget plot] coordinates {(0.6931,9.120)};
+\addplot[only marks, mark=*, mark size=1.6pt, c3, forget plot] coordinates {(0.6931,8.880)};
+\addplot[only marks, mark=o, mark size=1.9pt, c3, forget plot] coordinates {(1.3863,9.210)};
+\addplot[only marks, mark=*, mark size=1.6pt, c3, forget plot] coordinates {(1.3863,8.970)};
+\addplot[only marks, mark=o, mark size=1.9pt, c3, forget plot] coordinates {(1.0986,9.300)};
+\addplot[only marks, mark=*, mark size=1.6pt, c3, forget plot] coordinates {(1.3863,9.060)};
+\draw[c4!35, line width=3pt] (axis cs:1.7918,8) -- (axis cs:3.2958,8);
+\addplot[only marks, mark=o, mark size=1.9pt, c4, forget plot] coordinates {(1.9459,7.940)};
+\addplot[only marks, mark=*, mark size=1.6pt, c4, forget plot] coordinates {(1.7918,7.700)};
+\addplot[only marks, mark=o, mark size=1.9pt, c4, forget plot] coordinates {(1.9459,8.030)};
+\addplot[only marks, mark=*, mark size=1.6pt, c4, forget plot] coordinates {(2.0794,7.790)};
+\addplot[only marks, mark=o, mark size=1.9pt, c4, forget plot] coordinates {(1.9459,8.120)};
+\addplot[only marks, mark=*, mark size=1.6pt, c4, forget plot] coordinates {(2.1972,7.880)};
+\addplot[only marks, mark=o, mark size=1.9pt, c4, forget plot] coordinates {(3.2958,8.210)};
+\addplot[only marks, mark=*, mark size=1.6pt, c4, forget plot] coordinates {(1.9459,7.970)};
+\addplot[only marks, mark=o, mark size=1.9pt, c4, forget plot] coordinates {(2.7081,8.300)};
+\addplot[only marks, mark=*, mark size=1.6pt, c4, forget plot] coordinates {(2.0794,8.060)};
+\draw[c5!35, line width=3pt] (axis cs:0.0000,7) -- (axis cs:4.1431,7);
+\addplot[only marks, mark=o, mark size=1.9pt, c5, forget plot] coordinates {(2.6391,6.940)};
+\addplot[only marks, mark=*, mark size=1.6pt, c5, forget plot] coordinates {(0.0000,6.700)};
+\addplot[only marks, mark=o, mark size=1.9pt, c5, forget plot] coordinates {(4.1431,7.030)};
+\addplot[only marks, mark=*, mark size=1.6pt, c5, forget plot] coordinates {(0.0000,6.790)};
+\addplot[only marks, mark=o, mark size=1.9pt, c5, forget plot] coordinates {(1.3863,7.120)};
+\addplot[only marks, mark=*, mark size=1.6pt, c5, forget plot] coordinates {(1.0986,6.880)};
+\addplot[only marks, mark=o, mark size=1.9pt, c5, forget plot] coordinates {(3.4340,7.210)};
+\addplot[only marks, mark=*, mark size=1.6pt, c5, forget plot] coordinates {(0.6931,6.970)};
+\addplot[only marks, mark=o, mark size=1.9pt, c5, forget plot] coordinates {(3.8067,7.300)};
+\addplot[only marks, mark=*, mark size=1.6pt, c5, forget plot] coordinates {(0.6931,7.060)};
+\draw[c1!35, line width=3pt] (axis cs:0.0000,6) -- (axis cs:1.3863,6);
+\addplot[only marks, mark=o, mark size=1.9pt, c1, forget plot] coordinates {(0.0000,5.940)};
+\addplot[only marks, mark=*, mark size=1.6pt, c1, forget plot] coordinates {(0.0000,5.700)};
+\addplot[only marks, mark=o, mark size=1.9pt, c1, forget plot] coordinates {(0.0000,6.030)};
+\addplot[only marks, mark=*, mark size=1.6pt, c1, forget plot] coordinates {(0.0000,5.790)};
+\addplot[only marks, mark=o, mark size=1.9pt, c1, forget plot] coordinates {(1.3863,6.120)};
+\addplot[only marks, mark=*, mark size=1.6pt, c1, forget plot] coordinates {(1.0986,5.880)};
+\addplot[only marks, mark=o, mark size=1.9pt, c1, forget plot] coordinates {(0.6931,6.210)};
+\addplot[only marks, mark=*, mark size=1.6pt, c1, forget plot] coordinates {(0.6931,5.970)};
+\addplot[only marks, mark=o, mark size=1.9pt, c1, forget plot] coordinates {(0.6931,6.300)};
+\addplot[only marks, mark=*, mark size=1.6pt, c1, forget plot] coordinates {(1.0986,6.060)};
+\draw[c2!35, line width=3pt] (axis cs:1.0986,5) -- (axis cs:1.7918,5);
+\addplot[only marks, mark=o, mark size=1.9pt, c2, forget plot] coordinates {(1.6094,4.940)};
+\addplot[only marks, mark=*, mark size=1.6pt, c2, forget plot] coordinates {(1.0986,4.700)};
+\addplot[only marks, mark=o, mark size=1.9pt, c2, forget plot] coordinates {(1.0986,5.030)};
+\addplot[only marks, mark=*, mark size=1.6pt, c2, forget plot] coordinates {(1.3863,4.790)};
+\addplot[only marks, mark=o, mark size=1.9pt, c2, forget plot] coordinates {(1.0986,5.120)};
+\addplot[only marks, mark=*, mark size=1.6pt, c2, forget plot] coordinates {(1.6094,4.880)};
+\addplot[only marks, mark=o, mark size=1.9pt, c2, forget plot] coordinates {(1.3863,5.210)};
+\addplot[only marks, mark=*, mark size=1.6pt, c2, forget plot] coordinates {(1.7918,4.970)};
+\addplot[only marks, mark=o, mark size=1.9pt, c2, forget plot] coordinates {(1.0986,5.300)};
+\addplot[only marks, mark=*, mark size=1.6pt, c2, forget plot] coordinates {(1.0986,5.060)};
+\draw[c3!35, line width=3pt] (axis cs:0.0000,4) -- (axis cs:1.6094,4);
+\addplot[only marks, mark=o, mark size=1.9pt, c3, forget plot] coordinates {(1.6094,3.940)};
+\addplot[only marks, mark=*, mark size=1.6pt, c3, forget plot] coordinates {(1.3863,3.700)};
+\addplot[only marks, mark=o, mark size=1.9pt, c3, forget plot] coordinates {(1.3863,4.030)};
+\addplot[only marks, mark=*, mark size=1.6pt, c3, forget plot] coordinates {(1.3863,3.790)};
+\addplot[only marks, mark=o, mark size=1.9pt, c3, forget plot] coordinates {(1.3863,4.120)};
+\addplot[only marks, mark=*, mark size=1.6pt, c3, forget plot] coordinates {(0.6931,3.880)};
+\addplot[only marks, mark=o, mark size=1.9pt, c3, forget plot] coordinates {(1.0986,4.210)};
+\addplot[only marks, mark=*, mark size=1.6pt, c3, forget plot] coordinates {(0.0000,3.970)};
+\addplot[only marks, mark=o, mark size=1.9pt, c3, forget plot] coordinates {(1.3863,4.300)};
+\addplot[only marks, mark=*, mark size=1.6pt, c3, forget plot] coordinates {(1.6094,4.060)};
+\draw[c4!35, line width=3pt] (axis cs:1.7918,3) -- (axis cs:3.0910,3);
+\addplot[only marks, mark=o, mark size=1.9pt, c4, forget plot] coordinates {(2.1972,2.940)};
+\addplot[only marks, mark=*, mark size=1.6pt, c4, forget plot] coordinates {(2.3026,2.700)};
+\addplot[only marks, mark=o, mark size=1.9pt, c4, forget plot] coordinates {(2.6391,3.030)};
+\addplot[only marks, mark=*, mark size=1.6pt, c4, forget plot] coordinates {(2.4849,2.790)};
+\addplot[only marks, mark=o, mark size=1.9pt, c4, forget plot] coordinates {(2.3979,3.120)};
+\addplot[only marks, mark=*, mark size=1.6pt, c4, forget plot] coordinates {(3.0910,2.880)};
+\addplot[only marks, mark=o, mark size=1.9pt, c4, forget plot] coordinates {(1.7918,3.210)};
+\addplot[only marks, mark=*, mark size=1.6pt, c4, forget plot] coordinates {(1.7918,2.970)};
+\addplot[only marks, mark=o, mark size=1.9pt, c4, forget plot] coordinates {(2.3979,3.300)};
+\addplot[only marks, mark=*, mark size=1.6pt, c4, forget plot] coordinates {(2.0794,3.060)};
+\draw[c5!35, line width=3pt] (axis cs:0.6931,2) -- (axis cs:3.4965,2);
+\addplot[only marks, mark=o, mark size=1.9pt, c5, forget plot] coordinates {(2.6391,1.940)};
+\addplot[only marks, mark=*, mark size=1.6pt, c5, forget plot] coordinates {(0.6931,1.700)};
+\addplot[only marks, mark=o, mark size=1.9pt, c5, forget plot] coordinates {(2.0794,2.030)};
+\addplot[only marks, mark=*, mark size=1.6pt, c5, forget plot] coordinates {(1.0986,1.790)};
+\addplot[only marks, mark=o, mark size=1.9pt, c5, forget plot] coordinates {(1.3863,2.120)};
+\addplot[only marks, mark=*, mark size=1.6pt, c5, forget plot] coordinates {(0.6931,1.880)};
+\addplot[only marks, mark=o, mark size=1.9pt, c5, forget plot] coordinates {(3.4965,2.210)};
+\addplot[only marks, mark=*, mark size=1.6pt, c5, forget plot] coordinates {(0.6931,1.970)};
+\addplot[only marks, mark=o, mark size=1.9pt, c5, forget plot] coordinates {(0.6931,2.300)};
+\addplot[only marks, mark=*, mark size=1.6pt, c5, forget plot] coordinates {(0.6931,2.060)};
+\draw[c1!35, line width=3pt] (axis cs:0.0000,1) -- (axis cs:0.0000,1);
+\addplot[only marks, mark=o, mark size=1.9pt, c1, forget plot] coordinates {(0.0000,1.030)};
+\addplot[only marks, mark=*, mark size=1.6pt, c1, forget plot] coordinates {(0.0000,0.790)};
+\addplot[only marks, mark=o, mark size=1.9pt, c1, forget plot] coordinates {(0.0000,1.120)};
+\addplot[only marks, mark=*, mark size=1.6pt, c1, forget plot] coordinates {(0.0000,0.880)};
+\addplot[only marks, mark=o, mark size=1.9pt, c1, forget plot] coordinates {(0.0000,1.210)};
+\addplot[only marks, mark=*, mark size=1.6pt, c1, forget plot] coordinates {(0.0000,0.970)};
+\draw[c5!35, line width=3pt] (axis cs:0.0000,0) -- (axis cs:4.2047,0);
+\addplot[only marks, mark=o, mark size=1.9pt, c5, forget plot] coordinates {(2.7726,0.030)};
+\addplot[only marks, mark=*, mark size=1.6pt, c5, forget plot] coordinates {(0.0000,-0.210)};
+\addplot[only marks, mark=o, mark size=1.9pt, c5, forget plot] coordinates {(4.2047,0.120)};
+\addplot[only marks, mark=*, mark size=1.6pt, c5, forget plot] coordinates {(1.0986,-0.120)};
+\addplot[only marks, mark=o, mark size=1.9pt, c5, forget plot] coordinates {(2.7081,0.210)};
+\addplot[only marks, mark=*, mark size=1.6pt, c5, forget plot] coordinates {(0.0000,-0.030)};
+\addlegendimage{only marks, mark=o, black}\addlegendentry{one run at 0.5}
+\addlegendimage{only marks, mark=*, black}\addlegendentry{one run at validation-tuned $t$}
+\end{axis}
+\end{tikzpicture}
+\end{document}

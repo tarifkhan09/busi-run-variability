@@ -1,0 +1,10 @@
+# Environment of the multi-seed experiment (Google Colab, Tesla T4, logged 2026-11-06)
+python==3.13.16
+tensorflow==2.21.0
+keras==3.13.2
+numpy==2.4.6
+opencv-python==4.14.0
+scikit-learn==1.6.1
+scipy
+pandas
+# analysis/multiseed_analysis.py needs only numpy

@@ -1,0 +1,1 @@
+{"lr": 0.0001, "freeze_ratio": 0.5, "variant": "native", "epochs": 50}

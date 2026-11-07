@@ -1,0 +1,50 @@
+{
+ "val_auroc": 0.9990224828934506,
+ "test_auroc": 0.9995265151515151,
+ "val_at_0.5": {
+  "tp": 30,
+  "tn": 64,
+  "fp": 2,
+  "fn": 1
+ },
+ "test_at_0.5": {
+  "tp": 32,
+  "tn": 65,
+  "fp": 1,
+  "fn": 0
+ },
+ "thr_val": 0.42569488286972046,
+ "test_at_thr": {
+  "tp": 32,
+  "tn": 65,
+  "fp": 1,
+  "fn": 0
+ },
+ "tag": "native_ResNet50_FT_seed2",
+ "backbone": "ResNet50",
+ "strategy": "FT",
+ "seed": 2,
+ "data": "/content/ms/BUSI_split",
+ "note": "native preprocess_input",
+ "freeze": 0.4,
+ "lr": 1e-05,
+ "epochs_run": 42,
+ "best_epoch": 22,
+ "val_loss_at_best": 0.08930031210184097,
+ "class_weights": {
+  "0": 0.740983606557377,
+  "1": 1.5374149659863945
+ },
+ "minutes": 7.2,
+ "env": {
+  "python": "3.13.16",
+  "tensorflow": "2.21.0",
+  "keras": "3.13.2",
+  "numpy": "2.4.6",
+  "opencv": "4.14.0",
+  "sklearn": "1.6.1",
+  "gpu": "Tesla T4, 580.82.07",
+  "platform": "Linux-6.6.159+-x86_64-with-glibc2.39",
+  "time": "2026-11-07 10:27:52"
+ }
+}

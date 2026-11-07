@@ -1,0 +1,76 @@
+Multi-seed analysis: 92 runs, 98 test images
+
+Per configuration (main runs): mean (SD) [min-max] over seeds
+  DenseNet121  PF: n=5  AUROC 1.0000 (0.0000)  errors@0.5 1.2 (1.1) [0-3]  errors@thr 0.4 (0.5) [0-1]
+  Xception     PF: n=5  AUROC 0.9987 (0.0013)  errors@0.5 2.8 (1.6) [1-5]  errors@thr 2.8 (0.8) [2-4]
+  InceptionV3  PF: n=5  AUROC 0.9984 (0.0016)  errors@0.5 2.2 (0.8) [1-3]  errors@thr 2.2 (0.8) [1-3]
+  ResNet50     PF: n=5  AUROC 0.9913 (0.0043)  errors@0.5 11.6 (8.8) [6-26]  errors@thr 6.6 (1.1) [5-8]
+  VGG16        PF: n=5  AUROC 0.9994 (0.0006)  errors@0.5 30.4 (23.6) [3-62]  errors@thr 0.8 (0.8) [0-2]
+  DenseNet121  FT: n=5  AUROC 0.9990 (0.0023)  errors@0.5 1.0 (1.2) [0-3]  errors@thr 1.0 (1.0) [0-2]
+  Xception     FT: n=5  AUROC 0.9987 (0.0012)  errors@0.5 2.6 (0.9) [2-4]  errors@thr 3.2 (1.3) [2-5]
+  InceptionV3  FT: n=5  AUROC 0.9973 (0.0019)  errors@0.5 3.0 (0.7) [2-4]  errors@thr 2.2 (1.6) [0-4]
+  ResNet50     FT: n=5  AUROC 0.9777 (0.0093)  errors@0.5 9.2 (2.9) [5-13]  errors@thr 10.6 (6.2) [5-21]
+  VGG16        FT: n=5  AUROC 0.9989 (0.0010)  errors@0.5 11.2 (12.5) [1-32]  errors@thr 1.2 (0.4) [1-2]
+
+Validation threshold vs 0.5 over 50 main runs: fewer errors in 25, same in 13, more in 12; total errors 376 -> 155
+
+Same-seed repeats (original vs repeat)
+  DenseNet121|PF seed 0: FP/FN 0/1 vs 0/2; 1 of 98 test cases change class
+  VGG16|PF seed 0: FP/FN 13/0 vs 0/2; 15 of 98 test cases change class
+
+Shape-only control (lesion silhouette input)
+  DenseNet121  PF: n=3  AUROC 1.0000 [1.0000-1.0000]  errors@0.5 [0-0]  errors@thr [0-0]
+  VGG16        PF: n=3  AUROC 0.9998 [0.9995-1.0000]  errors@0.5 [14-66]  errors@thr [0-2]
+
+PF vs FT (exact McNemar at 0.5, Holm over 25 comparisons): 3 significant at 0.05; at the validation-tuned thresholds 0 significant (smallest Holm p 0.1106)
+  DenseNet121  seed 0: discordant 0/1  p=1.0000  p_holm=1.0000  | at t: 0/1  p_holm=1.0000
+  DenseNet121  seed 1: discordant 0/1  p=1.0000  p_holm=1.0000  | at t: 0/0  p_holm=1.0000
+  DenseNet121  seed 2: discordant 2/2  p=1.0000  p_holm=1.0000  | at t: 1/0  p_holm=1.0000
+  DenseNet121  seed 3: discordant 1/1  p=1.0000  p_holm=1.0000  | at t: 1/0  p_holm=1.0000
+  DenseNet121  seed 4: discordant 1/0  p=1.0000  p_holm=1.0000  | at t: 2/0  p_holm=1.0000
+  Xception     seed 0: discordant 2/3  p=1.0000  p_holm=1.0000  | at t: 1/2  p_holm=1.0000
+  Xception     seed 1: discordant 2/1  p=1.0000  p_holm=1.0000  | at t: 2/1  p_holm=1.0000
+  Xception     seed 2: discordant 0/0  p=1.0000  p_holm=1.0000  | at t: 2/0  p_holm=1.0000
+  Xception     seed 3: discordant 3/2  p=1.0000  p_holm=1.0000  | at t: 3/2  p_holm=1.0000
+  Xception     seed 4: discordant 1/3  p=0.6250  p_holm=1.0000  | at t: 2/3  p_holm=1.0000
+  InceptionV3  seed 0: discordant 2/0  p=0.5000  p_holm=1.0000  | at t: 2/1  p_holm=1.0000
+  InceptionV3  seed 1: discordant 2/2  p=1.0000  p_holm=1.0000  | at t: 1/0  p_holm=1.0000
+  InceptionV3  seed 2: discordant 3/1  p=0.6250  p_holm=1.0000  | at t: 1/1  p_holm=1.0000
+  InceptionV3  seed 3: discordant 1/2  p=1.0000  p_holm=1.0000  | at t: 0/3  p_holm=1.0000
+  InceptionV3  seed 4: discordant 2/1  p=1.0000  p_holm=1.0000  | at t: 1/0  p_holm=1.0000
+  ResNet50     seed 0: discordant 6/4  p=0.7539  p_holm=1.0000  | at t: 8/4  p_holm=1.0000
+  ResNet50     seed 1: discordant 10/3  p=0.0923  p_holm=1.0000  | at t: 6/2  p_holm=1.0000
+  ResNet50     seed 2: discordant 7/3  p=0.3438  p_holm=1.0000  | at t: 16/3  p_holm=0.1106
+  ResNet50     seed 3: discordant 3/24  p=0.0000  p_holm=0.0011  | at t: 3/4  p_holm=1.0000
+  ResNet50     seed 4: discordant 3/7  p=0.3438  p_holm=1.0000  | at t: 6/6  p_holm=1.0000
+  VGG16        seed 0: discordant 5/5  p=1.0000  p_holm=1.0000  | at t: 1/0  p_holm=1.0000
+  VGG16        seed 1: discordant 0/55  p=0.0000  p_holm=0.0000  | at t: 2/0  p_holm=1.0000
+  VGG16        seed 2: discordant 3/3  p=1.0000  p_holm=1.0000  | at t: 0/1  p_holm=1.0000
+  VGG16        seed 3: discordant 2/0  p=0.5000  p_holm=1.0000  | at t: 1/1  p_holm=1.0000
+  VGG16        seed 4: discordant 1/44  p=0.0000  p_holm=0.0000  | at t: 1/1  p_holm=1.0000
+
+PF vs FT test AUROC, paired over seeds (FT - PF), exact sign-flip test
+  DenseNet121  mean -0.0010 [-0.0052 to +0.0000]  p=1.0000
+  Xception     mean -0.0000 [-0.0033 to +0.0019]  p=1.0000
+  InceptionV3  mean -0.0010 [-0.0028 to +0.0028]  p=0.3750
+  ResNet50     mean -0.0135 [-0.0279 to +0.0043]  p=0.1250
+  VGG16        mean -0.0006 [-0.0019 to +0.0009]  p=0.4375
+
+Native preprocess_input vs [0,1] scaling (paired over seeds; diff = native - [0,1])
+  VGG16     PF: native AUROC 0.9985 [0.9938-1.0000] vs [0,1] 0.9994 [0.9986-1.0000] (p=0.7500);  errors@0.5 2.6 [1-4] vs 30.4 [3-62];  errors@thr 2.2 [1-5]
+  ResNet50  PF: native AUROC 0.9995 [0.9976-1.0000] vs [0,1] 0.9913 [0.9839-0.9943] (p=0.0625);  errors@0.5 0.8 [0-1] vs 11.6 [6-26];  errors@thr 0.8 [0-3]
+  VGG16     FT: native AUROC 0.9997 [0.9991-1.0000] vs [0,1] 0.9989 [0.9976-1.0000] (p=0.5000);  errors@0.5 2.6 [0-9] vs 11.2 [1-32];  errors@thr 1.4 [0-3]
+  ResNet50  FT: native AUROC 0.9991 [0.9967-1.0000] vs [0,1] 0.9777 [0.9659-0.9882] (p=0.0625);  errors@0.5 2.0 [0-4] vs 9.2 [5-13];  errors@thr 2.0 [0-4]
+
+Input controls (PF): masksil = silhouette from the expert mask, whole = image without mask or crop,
+shape = silhouette from non-zero pixels, main = lesion crop (same seeds)
+  DenseNet121  masksil: n=3  AUROC 1.0000 [1.0000-1.0000]  errors@0.5 [0-3]  errors@thr [0-4]
+  DenseNet121  whole  : n=3  AUROC 0.9383 [0.8845-0.9711]  errors@0.5 [12-31]  errors@thr [6-12]
+  DenseNet121  shape  : n=3  AUROC 1.0000 [1.0000-1.0000]  errors@0.5 [0-0]  errors@thr [0-0]
+  DenseNet121  main   : n=3  AUROC 1.0000 [1.0000-1.0000]  errors@0.5 [1-3]  errors@thr [0-1]
+  VGG16        masksil: n=3  AUROC 1.0000 [1.0000-1.0000]  errors@0.5 [0-58]  errors@thr [0-1]
+  VGG16        whole  : n=3  AUROC 0.9301 [0.9138-0.9399]  errors@0.5 [18-24]  errors@thr [12-17]
+  VGG16        shape  : n=3  AUROC 0.9998 [0.9995-1.0000]  errors@0.5 [14-66]  errors@thr [0-2]
+  VGG16        main   : n=3  AUROC 0.9998 [0.9995-1.0000]  errors@0.5 [3-62]  errors@thr [0-2]
+
+Op determinism, VGG16-PF seed 0 twice: FP/FN 13/0 vs 13/0; 0 of 98 test cases change class; max |score diff| 0.00e+00

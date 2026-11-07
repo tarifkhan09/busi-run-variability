@@ -1,0 +1,57 @@
+{
+  "_source": {
+    "A": "results/final_results_improved.csv (12 Apr 2026), rescale [0,1], PF lr 1e-4, FT lr 5e-6 all backbones; no saved per-case predictions",
+    "B": "Colab threshold_rescoring run on results/models (checkpoints 25-31 Aug 2026), rescale [0,1], PF lr 1e-4, FT lr 1e-5; Xception PF checkpoint corrupt; ResNet50 FT retrained 31 Aug (30 epochs)",
+    "C": "results/preds_native (26 Aug 2026), native preprocess_input, PF lr 1e-4, FT lr 1e-5, 50 epochs (models_native/*_meta.json)"
+  },
+  "n_benign": 66, "n_malignant": 32,
+  "runs": {
+    "A": {
+      "DenseNet121|PF": {"auc": 1.0000, "fp": 0, "fn": 1},
+      "Xception|PF":    {"auc": 1.0000, "fp": 4, "fn": 0},
+      "InceptionV3|PF": {"auc": 1.0000, "fp": 0, "fn": 4},
+      "ResNet50|PF":    {"auc": 0.9991, "fp": 2, "fn": 0},
+      "VGG16|PF":       {"auc": 1.0000, "fp": 49, "fn": 0},
+      "DenseNet121|FT": {"auc": 0.9991, "fp": 1, "fn": 0},
+      "Xception|FT":    {"auc": 0.9938, "fp": 5, "fn": 1},
+      "InceptionV3|FT": {"auc": 0.9621, "fp": 29, "fn": 0},
+      "ResNet50|FT":    {"auc": 0.9508, "fp": 1, "fn": 17},
+      "VGG16|FT":       {"auc": 0.9991, "fp": 17, "fn": 0}
+    },
+    "B": {
+      "DenseNet121|PF": {"auc": 1.0000, "fp": 0, "fn": 0, "thr": 0.4565, "fpv": 0, "fnv": 0},
+      "Xception|PF":    null,
+      "InceptionV3|PF": {"auc": 1.0000, "fp": 0, "fn": 0, "thr": 0.4568, "fpv": 0, "fnv": 0},
+      "ResNet50|PF":    {"auc": 0.9844, "fp": 8, "fn": 1, "thr": 0.5246, "fpv": 8, "fnv": 1},
+      "VGG16|PF":       {"auc": 0.9991, "fp": 0, "fn": 2, "thr": 0.2405, "fpv": 1, "fnv": 1},
+      "DenseNet121|FT": {"auc": 0.9995, "fp": 0, "fn": 1, "thr": 0.6926, "fpv": 0, "fnv": 2},
+      "Xception|FT":    {"auc": 0.9995, "fp": 3, "fn": 0, "thr": 0.4305, "fpv": 3, "fnv": 0},
+      "InceptionV3|FT": {"auc": 0.9915, "fp": 1, "fn": 2, "thr": 0.3669, "fpv": 1, "fnv": 2},
+      "ResNet50|FT":    {"auc": 0.9792, "fp": 4, "fn": 5, "thr": 0.2400, "fpv": 11, "fnv": 1},
+      "VGG16|FT":       {"auc": 0.9995, "fp": 1, "fn": 0, "thr": 0.3390, "fpv": 2, "fnv": 0}
+    },
+    "C": {
+      "DenseNet121|PF": {"auc": 1.0000, "fp": 0, "fn": 0, "thr": 0.521, "fpv": 0, "fnv": 0},
+      "Xception|PF":    {"auc": 1.0000, "fp": 2, "fn": 0, "thr": 0.546, "fpv": 0, "fnv": 0},
+      "InceptionV3|PF": {"auc": 0.9834, "fp": 0, "fn": 7, "thr": 0.151, "fpv": 1, "fnv": 5},
+      "ResNet50|PF":    {"auc": 1.0000, "fp": 1, "fn": 0, "thr": 0.553, "fpv": 0, "fnv": 0},
+      "VGG16|PF":       {"auc": 0.9986, "fp": 21, "fn": 0, "thr": 0.984, "fpv": 2, "fnv": 1},
+      "DenseNet121|FT": {"auc": 0.9995, "fp": 1, "fn": 0, "thr": 0.533, "fpv": 1, "fnv": 0},
+      "Xception|FT":    {"auc": 1.0000, "fp": 1, "fn": 0, "thr": 0.481, "fpv": 1, "fnv": 0},
+      "InceptionV3|FT": {"auc": 0.9957, "fp": 2, "fn": 1, "thr": 0.483, "fpv": 2, "fnv": 1},
+      "ResNet50|FT":    {"auc": 1.0000, "fp": 1, "fn": 0, "thr": 0.375, "fpv": 2, "fnv": 0},
+      "VGG16|FT":       {"auc": 0.9991, "fp": 2, "fn": 0, "thr": 0.922, "fpv": 1, "fnv": 1}
+    }
+  },
+  "mcnemar_pf_vs_ft": {
+    "B": {"DenseNet121": {"0.5": [1,0,1.0], "val": [2,0,0.5]},
+          "InceptionV3": {"0.5": [3,0,0.25], "val": [3,0,0.25]},
+          "ResNet50":    {"0.5": [7,7,1.0], "val": [9,6,0.6072]},
+          "VGG16":       {"0.5": [1,2,1.0], "val": [1,1,1.0]}},
+    "C": {"DenseNet121": {"0.5": [1,0,1.0], "val": [1,0,1.0]},
+          "Xception":    {"0.5": [0,1,1.0], "val": [1,0,1.0]},
+          "InceptionV3": {"0.5": [2,6,0.2891], "val": [1,4,0.375]},
+          "ResNet50":    {"0.5": [1,1,1.0], "val": [2,0,0.5]},
+          "VGG16":       {"0.5": [0,19,null], "val": [0,1,1.0]}}
+  }
+}

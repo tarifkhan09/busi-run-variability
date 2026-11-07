@@ -1,0 +1,11 @@
+{
+ "python": "3.13.16",
+ "tensorflow": "2.21.0",
+ "keras": "3.13.2",
+ "numpy": "2.4.6",
+ "opencv": "4.14.0",
+ "sklearn": "1.6.1",
+ "gpu": "Tesla T4, 580.82.07",
+ "platform": "Linux-6.6.159+-x86_64-with-glibc2.39",
+ "time": "2026-11-07 05:39:44"
+}

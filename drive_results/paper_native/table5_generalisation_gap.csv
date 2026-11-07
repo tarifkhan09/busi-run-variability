@@ -1,0 +1,5 @@
+Model,AUROC_int,AUROC_ext,dAUROC,Acc_int,Acc_ext,dAcc,Sen_int,Sen_ext,dSen,Spe_int,Spe_ext,dSpe
+Xception_feature_extractor,1.0,0.9078,-0.0922,1.0,0.8064,-0.1936,1.0,0.8995,-0.1005,1.0,0.7618,-0.2382
+DenseNet121_feature_extractor,1.0,0.9159,-0.0841,1.0,0.7893,-0.2107,1.0,0.9242,-0.0758,1.0,0.7248,-0.2752
+ResNet50_feature_extractor,1.0,0.9235,-0.0765,1.0,0.8283,-0.1717,1.0,0.911,-0.089,1.0,0.7886,-0.2114
+ENSEMBLE,1.0,0.9196,-0.0804,1.0,0.8352,-0.1648,1.0,0.8946,-0.1054,1.0,0.8068,-0.1932

@@ -1,0 +1,50 @@
+{
+ "val_auroc": 1.0,
+ "test_auroc": 0.9995265151515151,
+ "val_at_0.5": {
+  "tp": 30,
+  "tn": 66,
+  "fp": 0,
+  "fn": 1
+ },
+ "test_at_0.5": {
+  "tp": 31,
+  "tn": 65,
+  "fp": 1,
+  "fn": 1
+ },
+ "thr_val": 0.2995471954345703,
+ "test_at_thr": {
+  "tp": 32,
+  "tn": 64,
+  "fp": 2,
+  "fn": 0
+ },
+ "tag": "main_Xception_PF_seed2",
+ "backbone": "Xception",
+ "strategy": "PF",
+ "seed": 2,
+ "data": "/content/ms/BUSI_split",
+ "note": "",
+ "freeze": 0.5,
+ "lr": 0.0001,
+ "epochs_run": 33,
+ "best_epoch": 13,
+ "val_loss_at_best": 0.10302212089300156,
+ "class_weights": {
+  "0": 0.740983606557377,
+  "1": 1.5374149659863945
+ },
+ "minutes": 6.2,
+ "env": {
+  "python": "3.13.16",
+  "tensorflow": "2.21.0",
+  "keras": "3.13.2",
+  "numpy": "2.4.6",
+  "opencv": "4.14.0",
+  "sklearn": "1.6.1",
+  "gpu": "Tesla T4, 580.82.07",
+  "platform": "Linux-6.6.159+-x86_64-with-glibc2.39",
+  "time": "2026-11-07 00:34:57"
+ }
+}

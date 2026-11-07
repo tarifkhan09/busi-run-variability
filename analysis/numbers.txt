@@ -1,0 +1,89 @@
+=== Per-configuration metrics at 0.5 (and validation-tuned where available) ===
+DenseNet121|PF   A: AUROC 1.0000 acc 98.98 [94.44,99.82] sen 96.88 spe 100.00 FP 0 FN 1
+DenseNet121|PF   B: AUROC 1.0000 acc 100.00 [96.23,100.00] sen 100.00 spe 100.00 FP 0 FN 0 | thr 0.46 acc 100.00 sen 100.00 spe 100.00 FP 0 FN 0
+DenseNet121|PF   C: AUROC 1.0000 acc 100.00 [96.23,100.00] sen 100.00 spe 100.00 FP 0 FN 0 | thr 0.52 acc 100.00 sen 100.00 spe 100.00 FP 0 FN 0
+Xception|PF      A: AUROC 1.0000 acc 95.92 [89.97,98.40] sen 100.00 spe 93.94 FP 4 FN 0
+Xception|PF      B: missing
+Xception|PF      C: AUROC 1.0000 acc 97.96 [92.86,99.44] sen 100.00 spe 96.97 FP 2 FN 0 | thr 0.55 acc 100.00 sen 100.00 spe 100.00 FP 0 FN 0
+InceptionV3|PF   A: AUROC 1.0000 acc 95.92 [89.97,98.40] sen 87.50 spe 100.00 FP 0 FN 4
+InceptionV3|PF   B: AUROC 1.0000 acc 100.00 [96.23,100.00] sen 100.00 spe 100.00 FP 0 FN 0 | thr 0.46 acc 100.00 sen 100.00 spe 100.00 FP 0 FN 0
+InceptionV3|PF   C: AUROC 0.9834 acc 92.86 [85.98,96.50] sen 78.12 spe 100.00 FP 0 FN 7 | thr 0.15 acc 93.88 sen 84.38 spe 98.48 FP 1 FN 5
+ResNet50|PF      A: AUROC 0.9991 acc 97.96 [92.86,99.44] sen 100.00 spe 96.97 FP 2 FN 0
+ResNet50|PF      B: AUROC 0.9844 acc 90.82 [83.46,95.09] sen 96.88 spe 87.88 FP 8 FN 1 | thr 0.52 acc 90.82 sen 96.88 spe 87.88 FP 8 FN 1
+ResNet50|PF      C: AUROC 1.0000 acc 98.98 [94.44,99.82] sen 100.00 spe 98.48 FP 1 FN 0 | thr 0.55 acc 100.00 sen 100.00 spe 100.00 FP 0 FN 0
+VGG16|PF         A: AUROC 1.0000 acc 50.00 [40.29,59.71] sen 100.00 spe 25.76 FP 49 FN 0
+VGG16|PF         B: AUROC 0.9991 acc 97.96 [92.86,99.44] sen 93.75 spe 100.00 FP 0 FN 2 | thr 0.24 acc 97.96 sen 96.88 spe 98.48 FP 1 FN 1
+VGG16|PF         C: AUROC 0.9986 acc 78.57 [69.45,85.54] sen 100.00 spe 68.18 FP 21 FN 0 | thr 0.98 acc 96.94 sen 96.88 spe 96.97 FP 2 FN 1
+DenseNet121|FT   A: AUROC 0.9991 acc 98.98 [94.44,99.82] sen 100.00 spe 98.48 FP 1 FN 0
+DenseNet121|FT   B: AUROC 0.9995 acc 98.98 [94.44,99.82] sen 96.88 spe 100.00 FP 0 FN 1 | thr 0.69 acc 97.96 sen 93.75 spe 100.00 FP 0 FN 2
+DenseNet121|FT   C: AUROC 0.9995 acc 98.98 [94.44,99.82] sen 100.00 spe 98.48 FP 1 FN 0 | thr 0.53 acc 98.98 sen 100.00 spe 98.48 FP 1 FN 0
+Xception|FT      A: AUROC 0.9938 acc 93.88 [87.28,97.16] sen 96.88 spe 92.42 FP 5 FN 1
+Xception|FT      B: AUROC 0.9995 acc 96.94 [91.38,98.95] sen 100.00 spe 95.45 FP 3 FN 0 | thr 0.43 acc 96.94 sen 100.00 spe 95.45 FP 3 FN 0
+Xception|FT      C: AUROC 1.0000 acc 98.98 [94.44,99.82] sen 100.00 spe 98.48 FP 1 FN 0 | thr 0.48 acc 98.98 sen 100.00 spe 98.48 FP 1 FN 0
+InceptionV3|FT   A: AUROC 0.9621 acc 70.41 [60.74,78.54] sen 100.00 spe 56.06 FP 29 FN 0
+InceptionV3|FT   B: AUROC 0.9915 acc 96.94 [91.38,98.95] sen 93.75 spe 98.48 FP 1 FN 2 | thr 0.37 acc 96.94 sen 93.75 spe 98.48 FP 1 FN 2
+InceptionV3|FT   C: AUROC 0.9957 acc 96.94 [91.38,98.95] sen 96.88 spe 96.97 FP 2 FN 1 | thr 0.48 acc 96.94 sen 96.88 spe 96.97 FP 2 FN 1
+ResNet50|FT      A: AUROC 0.9508 acc 81.63 [72.83,88.05] sen 46.88 spe 98.48 FP 1 FN 17
+ResNet50|FT      B: AUROC 0.9792 acc 90.82 [83.46,95.09] sen 84.38 spe 93.94 FP 4 FN 5 | thr 0.24 acc 87.76 sen 96.88 spe 83.33 FP 11 FN 1
+ResNet50|FT      C: AUROC 1.0000 acc 98.98 [94.44,99.82] sen 100.00 spe 98.48 FP 1 FN 0 | thr 0.38 acc 97.96 sen 100.00 spe 96.97 FP 2 FN 0
+VGG16|FT         A: AUROC 0.9991 acc 82.65 [73.96,88.88] sen 100.00 spe 74.24 FP 17 FN 0
+VGG16|FT         B: AUROC 0.9995 acc 98.98 [94.44,99.82] sen 100.00 spe 98.48 FP 1 FN 0 | thr 0.34 acc 97.96 sen 100.00 spe 96.97 FP 2 FN 0
+VGG16|FT         C: AUROC 0.9991 acc 97.96 [92.86,99.44] sen 100.00 spe 96.97 FP 2 FN 0 | thr 0.92 acc 97.96 sen 96.88 spe 98.48 FP 1 FN 1
+
+=== Run summaries ===
+Run A: n=10 best acc 98.98 by ['DenseNet121|PF', 'DenseNet121|FT']; worst 50.00 by ['VGG16|PF']
+   AUROC=1.0000 configs: 4 ['DenseNet121|PF', 'Xception|PF', 'InceptionV3|PF', 'VGG16|PF']; with errors at 0.5: ['DenseNet121|PF', 'Xception|PF', 'InceptionV3|PF', 'VGG16|PF']
+   total errors at 0.5: 131
+Run B: n=9 best acc 100.00 by ['DenseNet121|PF', 'InceptionV3|PF']; worst 90.82 by ['ResNet50|PF', 'ResNet50|FT']
+   AUROC=1.0000 configs: 2 ['DenseNet121|PF', 'InceptionV3|PF']; with errors at 0.5: []
+   total errors at 0.5: 28
+   total errors at val thr: 33
+Run C: n=10 best acc 100.00 by ['DenseNet121|PF']; worst 78.57 by ['VGG16|PF']
+   AUROC=1.0000 configs: 5 ['DenseNet121|PF', 'Xception|PF', 'ResNet50|PF', 'Xception|FT', 'ResNet50|FT']; with errors at 0.5: ['Xception|PF', 'ResNet50|PF', 'Xception|FT', 'ResNet50|FT']
+   total errors at 0.5: 39
+   total errors at val thr: 18
+
+=== Pure rerun: PF arm, run A vs run B (identical configuration) ===
+DenseNet121: A FP0/FN1 (98.98) -> B FP0/FN0 (100.00); shift 1.02 pts
+Xception: B missing
+InceptionV3: A FP0/FN4 (95.92) -> B FP0/FN0 (100.00); shift 4.08 pts
+ResNet50: A FP2/FN0 (97.96) -> B FP8/FN1 (90.82); shift 7.14 pts
+VGG16: A FP49/FN0 (50.00) -> B FP0/FN2 (97.96); shift 47.96 pts
+
+=== Per-configuration accuracy range across runs ===
+DenseNet121|PF   min 98.98 max 100.00 range 1.02
+Xception|PF      min 95.92 max 97.96 range 2.04
+InceptionV3|PF   min 92.86 max 100.00 range 7.14
+ResNet50|PF      min 90.82 max 98.98 range 8.16
+VGG16|PF         min 50.00 max 97.96 range 47.96
+DenseNet121|FT   min 98.98 max 98.98 range 0.00
+Xception|FT      min 93.88 max 98.98 range 5.10
+InceptionV3|FT   min 70.41 max 96.94 range 26.53
+ResNet50|FT      min 81.63 max 98.98 range 17.35
+VGG16|FT         min 82.65 max 98.98 range 16.33
+
+=== DenseNet121 error profile per run (PF vs FT) ===
+Run A: PF FP0/FN1  FT FP1/FN0
+Run B: PF FP0/FN0  FT FP0/FN1
+Run C: PF FP0/FN0  FT FP1/FN0
+
+=== McNemar (exact, two-sided) PF vs FT ===
+Run B DenseNet121  0.5  b=1 c=0 p=1
+Run B DenseNet121  val  b=2 c=0 p=0.5
+Run B InceptionV3  0.5  b=3 c=0 p=0.25
+Run B InceptionV3  val  b=3 c=0 p=0.25
+Run B ResNet50     0.5  b=7 c=7 p=1
+Run B ResNet50     val  b=9 c=6 p=0.607
+Run B VGG16        0.5  b=1 c=2 p=1
+Run B VGG16        val  b=1 c=1 p=1
+Run C DenseNet121  0.5  b=1 c=0 p=1
+Run C DenseNet121  val  b=1 c=0 p=1
+Run C Xception     0.5  b=0 c=1 p=1
+Run C Xception     val  b=1 c=0 p=1
+Run C InceptionV3  0.5  b=2 c=6 p=0.289
+Run C InceptionV3  val  b=1 c=4 p=0.375
+Run C ResNet50     0.5  b=1 c=1 p=1
+Run C ResNet50     val  b=2 c=0 p=0.5
+Run C VGG16        0.5  b=0 c=19 p=3.81e-06
+Run C VGG16        val  b=0 c=1 p=1
+Run A DenseNet121 (from confusion matrices): b=1 c=1 p=1.0

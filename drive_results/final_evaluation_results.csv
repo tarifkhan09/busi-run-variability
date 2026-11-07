@@ -1,0 +1,9 @@
+Model,Strategy,AUROC,Accuracy,Sensitivity,Specificity,TP,TN,FP,FN
+InceptionV3,feature_extractor,1.0,1.0,1.0,1.0,32,66,0,0
+DenseNet121,feature_extractor,1.0,1.0,1.0,1.0,32,66,0,0
+Xception,finetune,0.9995,0.9694,1.0,0.9545,32,63,3,0
+DenseNet121,finetune,0.9995,0.9898,0.9688,1.0,31,66,0,1
+VGG16,finetune,0.9995,0.9898,1.0,0.9848,32,65,1,0
+VGG16,feature_extractor,0.9991,0.9796,0.9375,1.0,30,66,0,2
+InceptionV3,finetune,0.9915,0.9694,0.9375,0.9848,30,65,1,2
+ResNet50,feature_extractor,0.9844,0.9082,0.9688,0.8788,31,58,8,1
