@@ -1,0 +1,50 @@
+{
+ "val_auroc": 1.0,
+ "test_auroc": 0.9985795454545455,
+ "val_at_0.5": {
+  "tp": 31,
+  "tn": 66,
+  "fp": 0,
+  "fn": 0
+ },
+ "test_at_0.5": {
+  "tp": 30,
+  "tn": 66,
+  "fp": 0,
+  "fn": 2
+ },
+ "thr_val": 0.39454177021980286,
+ "test_at_thr": {
+  "tp": 31,
+  "tn": 66,
+  "fp": 0,
+  "fn": 1
+ },
+ "tag": "native_InceptionV3_PF_seed1",
+ "backbone": "InceptionV3",
+ "strategy": "PF",
+ "seed": 1,
+ "data": "/content/ms/BUSI_split",
+ "note": "native preprocess_input",
+ "freeze": 0.5,
+ "lr": 0.0001,
+ "epochs_run": 37,
+ "best_epoch": 17,
+ "val_loss_at_best": 0.01998370885848999,
+ "class_weights": {
+  "0": 0.740983606557377,
+  "1": 1.5374149659863945
+ },
+ "minutes": 7.7,
+ "env": {
+  "python": "3.13.16",
+  "tensorflow": "2.21.0",
+  "keras": "3.13.2",
+  "numpy": "2.4.6",
+  "opencv": "4.14.0",
+  "sklearn": "1.6.1",
+  "gpu": "Tesla T4, 580.82.07",
+  "platform": "Linux-6.6.159+-x86_64-with-glibc2.39",
+  "time": "2026-11-07 18:31:41"
+ }
+}

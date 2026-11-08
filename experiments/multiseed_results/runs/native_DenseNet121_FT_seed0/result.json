@@ -1,0 +1,50 @@
+{
+ "val_auroc": 0.9980449657869013,
+ "test_auroc": 1.0,
+ "val_at_0.5": {
+  "tp": 29,
+  "tn": 64,
+  "fp": 2,
+  "fn": 2
+ },
+ "test_at_0.5": {
+  "tp": 31,
+  "tn": 66,
+  "fp": 0,
+  "fn": 1
+ },
+ "thr_val": 0.41148045659065247,
+ "test_at_thr": {
+  "tp": 32,
+  "tn": 66,
+  "fp": 0,
+  "fn": 0
+ },
+ "tag": "native_DenseNet121_FT_seed0",
+ "backbone": "DenseNet121",
+ "strategy": "FT",
+ "seed": 0,
+ "data": "/content/ms/BUSI_split",
+ "note": "native preprocess_input",
+ "freeze": 0.4,
+ "lr": 1e-05,
+ "epochs_run": 50,
+ "best_epoch": 33,
+ "val_loss_at_best": 0.07969113439321518,
+ "class_weights": {
+  "0": 0.740983606557377,
+  "1": 1.5374149659863945
+ },
+ "minutes": 22.4,
+ "env": {
+  "python": "3.13.16",
+  "tensorflow": "2.21.0",
+  "keras": "3.13.2",
+  "numpy": "2.4.6",
+  "opencv": "4.14.0",
+  "sklearn": "1.6.1",
+  "gpu": "Tesla T4, 580.82.07",
+  "platform": "Linux-6.6.159+-x86_64-with-glibc2.39",
+  "time": "2026-11-08 00:00:52"
+ }
+}

@@ -19,7 +19,7 @@ What it computes
   4. PF vs FT per backbone and seed: exact two-sided McNemar test on paired test-set
      correctness at 0.5 and at each model's validation-tuned threshold, with Holm correction.
   5. PF vs FT test AUROC, paired over seeds, with an exact sign-flip permutation test.
-  6. Follow-up: native keras preprocess_input vs [0,1] scaling for VGG16 and ResNet50 (paired over seeds).
+  6. Follow-up: native keras preprocess_input vs [0,1] scaling for all five backbones (paired over seeds).
   7. Follow-up input controls: silhouette from the expert mask and whole image without mask or crop,
      next to the non-zero-pixel silhouette and the lesion crop for the same seeds.
   8. Follow-up determinism check: VGG16-PF seed 0 twice with op determinism enabled.
@@ -218,7 +218,7 @@ def main(runs_dir, out):
     res["native"] = {}
     lines += ["", "Native preprocess_input vs [0,1] scaling (paired over seeds; diff = native - [0,1])"]
     for s in STRATS:
-        for b in ("VGG16", "ResNet50"):
+        for b in BACKBONES:
             sel = sorted((r for t, r in runs.items() if t.startswith("native_") and r["backbone"] == b
                           and r["strategy"] == s), key=lambda r: r["seed"])
             if not sel:
