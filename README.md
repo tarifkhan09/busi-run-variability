@@ -18,6 +18,7 @@ or recompute the paper's numbers is here; model weights are not distributed. BUS
 | `experiments/native3_cells.py` | Second follow-up of 30 runs: native `preprocess_input` for Xception, InceptionV3 and DenseNet121 (PF, FT, seeds 0–4). |
 | `experiments/multiseed_results/` | Outputs of all 122 runs (58 main/control runs plus 64 follow-up runs) (`runs/<tag>/result.json`, `history.json`, `scores.npz`), the partition (`split.csv`), environment logs, the A1 diagnostic, the summary printed in Colab (`summary_colab.csv`) and the analysis outputs (`summary_all_runs.csv`, `multiseed_stats.json`, `numbers_multiseed.txt`). |
 | `analysis/multiseed_analysis.py` | Computes every multi-seed number in the paper: mean/SD per configuration, same-seed repeat differences, shape-only control, validation-tuned thresholds, PF-vs-FT McNemar with Holm correction, native-vs-[0,1] comparison, input controls and the op-determinism check. NumPy only. |
+| `analysis/calibration_analysis.py` | Brier score and expected calibration error (ten equal-width bins) of every run on the test set, from the per-case scores; writes `calibration_runs.csv` and `calibration_numbers.txt`. NumPy only. |
 | `analysis/make_multiseed_figs.py` | Generates `fig_seeds.tex` and `fig_auc_err.tex` (pgfplots) from `summary_all_runs.csv`. |
 | `analysis/three_runs_analysis.py`, `three_runs.json` | Analysis of the three earlier runs (A, B, C). |
 | `analysis/make_pgf_figs.py` | Generates the pgfplots figure sources from `three_runs.json`. |
@@ -40,6 +41,7 @@ or recompute the paper's numbers is here; model weights are not distributed. BUS
 
    ```bash
    python3 analysis/multiseed_analysis.py experiments/multiseed_results/runs experiments/multiseed_results
+   python3 analysis/calibration_analysis.py experiments/multiseed_results
    python3 analysis/make_multiseed_figs.py experiments/multiseed_results figures_src
    ```
 

@@ -26,8 +26,9 @@ PRE = r"""\documentclass[border=1pt]{standalone}
 \usepackage{mathptmx}
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.18}
-\definecolor{c1}{RGB}{31,119,180}\definecolor{c2}{RGB}{255,127,14}\definecolor{c3}{RGB}{44,160,44}
-\definecolor{c4}{RGB}{214,39,40}\definecolor{c5}{RGB}{148,103,189}
+% Okabe-Ito colorblind-safe palette
+\definecolor{c1}{RGB}{0,114,178}\definecolor{c2}{RGB}{230,159,0}\definecolor{c3}{RGB}{0,158,115}
+\definecolor{c4}{RGB}{213,94,0}\definecolor{c5}{RGB}{204,121,167}
 \begin{document}
 """
 POST = "\\end{document}\n"
@@ -60,12 +61,12 @@ def fig_seeds(rows):
     ys = {name: n - 1 - i for i, (name, _) in enumerate(groups)}
     tv, tl = ticks([0, 1, 2, 5, 10, 20, 50, 98])
     out = [PRE, r"""\begin{tikzpicture}
-\begin{axis}[width=8.6cm, height=""" + f"{0.36 * n + 1.4:.2f}" + r"""cm, ymin=-0.7, ymax=""" + f"{n - 0.3}" + r""",
+\begin{axis}[width=8.6cm, height=""" + f"{0.46 * n + 1.8:.2f}" + r"""cm, ymin=-0.7, ymax=""" + f"{n - 0.3}" + r""",
   ytick={""" + ",".join(str(ys[g]) for g, _ in groups) + "}, yticklabels={" + ",".join("{" + g + "}" for g, _ in groups) + r"""},
   xmin=-0.15, xmax=""" + f"{lg(98) + 0.1:.4f}" + ", xtick={" + tv + "}, xticklabels={" + tl + r"""},
-  ticklabel style={font=\scriptsize}, label style={font=\footnotesize}, xlabel={Test errors (FP + FN), log scale},
+  ticklabel style={font=\footnotesize}, label style={font=\small}, xlabel={Test errors (FP + FN), log scale},
   xmajorgrids, grid style={black!10}, axis line style={black!70}, tick align=outside,
-  legend cell align=left, legend style={font=\scriptsize, draw=none, legend columns=2, at={(0.5,1.01)}, anchor=south,
+  legend cell align=left, legend style={font=\footnotesize, draw=none, legend columns=2, at={(0.4,1.01)}, anchor=south,
   /tikz/every even column/.append style={column sep=6pt}}]
 """]
     n_main = sum(1 for g, _ in groups if "shape" not in g)
@@ -75,11 +76,18 @@ def fig_seeds(rows):
     if n_main >= 10:
         out.append(f"\\draw[densely dotted, black!35] (axis cs:\\pgfkeysvalueof{{/pgfplots/xmin}},{n - 5.5}) -- "
                    f"(axis cs:\\pgfkeysvalueof{{/pgfplots/xmax}},{n - 5.5});")
+    native = {}
+    for r in rows:
+        if r["kind"] == "native":
+            native.setdefault(f"{SHORT[r['backbone']]} {r['strategy']}", []).append(r)
     for name, rs in groups:
         y = ys[name]
         col = BCOL[rs[0]["backbone"]]
         lo = min(min(r["err_05"], r["err_thr"]) for r in rs)
         hi = max(max(r["err_05"], r["err_thr"]) for r in rs)
+        for j, r in enumerate(sorted(native.get(name, []), key=lambda r: r["seed"])):
+            dy = (j - 2) * 0.09
+            out.append(f"\\addplot[only marks, mark=x, mark size=2.2pt, black!75, forget plot] coordinates {{({lg(r['err_05']):.4f},{y + dy:.3f})}};")
         out.append(f"\\draw[{col}!35, line width=3pt] (axis cs:{lg(lo):.4f},{y}) -- (axis cs:{lg(hi):.4f},{y});")
         k = len(rs)
         for j, r in enumerate(sorted(rs, key=lambda r: r["seed"])):
@@ -88,6 +96,7 @@ def fig_seeds(rows):
             out.append(f"\\addplot[only marks, mark=*, mark size=1.6pt, {col}, forget plot] coordinates {{({lg(r['err_thr']):.4f},{y + dy - 0.12:.3f})}};")
     out.append(r"\addlegendimage{only marks, mark=o, black}\addlegendentry{one run at 0.5}")
     out.append(r"\addlegendimage{only marks, mark=*, black}\addlegendentry{one run at validation-tuned $t$}")
+    out.append(r"\addlegendimage{only marks, mark=x, black!75}\addlegendentry{native normalization, at 0.5}")
     out.append(r"\end{axis}" + "\n" + r"\end{tikzpicture}" + "\n" + POST)
     return "\n".join(out)
 
@@ -98,12 +107,12 @@ def fig_auc_err(rows):
     xmin = math.floor((amin - 0.005) * 100) / 100
     tv, tl = ticks([0, 1, 2, 5, 10, 20, 50, 98])
     out = [PRE, r"""\begin{tikzpicture}
-\begin{axis}[width=8.6cm, height=4.4cm, xmin=""" + f"{xmin}" + r""", xmax=1.002, ymin=-0.15, ymax=""" + f"{lg(98) + 0.1:.4f}" + r""",
+\begin{axis}[width=8.6cm, height=5.0cm, xmin=""" + f"{xmin}" + r""", xmax=1.002, ymin=-0.15, ymax=""" + f"{lg(98) + 0.1:.4f}" + r""",
   ytick={""" + tv + "}, yticklabels={" + tl + r"""}, xlabel={Test AUROC}, ylabel={Test errors at 0.5 (log scale)},
   xticklabel style={/pgf/number format/fixed, /pgf/number format/precision=3},
-  ticklabel style={font=\scriptsize}, label style={font=\footnotesize}, grid=major, grid style={black!10},
+  ticklabel style={font=\footnotesize}, label style={font=\small}, grid=major, grid style={black!10},
   axis line style={black!70}, legend cell align=left,
-  legend style={font=\scriptsize, draw=none, legend columns=4, at={(0.5,-0.34)}, anchor=north,
+  legend style={font=\footnotesize, draw=none, legend columns=4, at={(0.5,-0.36)}, anchor=north,
   /tikz/every even column/.append style={column sep=4pt}}]
 """]
     for b in BACK:
@@ -111,7 +120,7 @@ def fig_auc_err(rows):
             pts = " ".join(f"({r['test_auroc']:.4f},{lg(r['err_05']):.4f})" for r in main
                            if r["backbone"] == b and r["strategy"] == s)
             if pts:
-                out.append(f"\\addplot[only marks, mark={mk}, mark size=2pt, {BCOL[b]}, mark options={{fill={BCOL[b]}!60, draw={BCOL[b]}}}, forget plot] coordinates {{{pts}}};")
+                out.append(f"\\addplot[only marks, mark={mk}, mark size=2.4pt, {BCOL[b]}, mark options={{fill={BCOL[b]}!60, draw={BCOL[b]}}}, forget plot] coordinates {{{pts}}};")
     for b in BACK:
         out.append(f"\\addlegendimage{{only marks, mark=square*, {BCOL[b]}}}\\addlegendentry{{{b}}}")
     out.append(r"\addlegendimage{only marks, mark=*, black!60}\addlegendentry{PF}")
