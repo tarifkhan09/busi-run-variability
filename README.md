@@ -19,6 +19,7 @@ or recompute the paper's numbers is here; model weights are not distributed. BUS
 | `experiments/multiseed_results/` | Outputs of all 122 runs (58 main/control runs plus 64 follow-up runs) (`runs/<tag>/result.json`, `history.json`, `scores.npz`), the partition (`split.csv`), environment logs, the A1 diagnostic, the summary printed in Colab (`summary_colab.csv`) and the analysis outputs (`summary_all_runs.csv`, `multiseed_stats.json`, `numbers_multiseed.txt`). |
 | `analysis/multiseed_analysis.py` | Computes every multi-seed number in the paper: mean/SD per configuration, same-seed repeat differences, shape-only control, validation-tuned thresholds, PF-vs-FT McNemar with Holm correction, native-vs-[0,1] comparison, input controls and the op-determinism check. NumPy only. |
 | `analysis/calibration_analysis.py` | Brier score and expected calibration error (ten equal-width bins) of every run on the test set, from the per-case scores; writes `calibration_runs.csv` and `calibration_numbers.txt`. NumPy only. |
+| `analysis/dedup_sensitivity.py` | Duplicate-leakage check: 64-bit difference hash of every original BUSI image (needs the BUSI images), flags test images within four bits of a training or validation image and re-scores every run on the remaining test images; writes `dedup_pairs.csv`, `dedup_test_leaked.txt`, `dedup_runs.csv` and `dedup_numbers.txt`. |
 | `analysis/make_multiseed_figs.py` | Generates `fig_seeds.tex` and `fig_auc_err.tex` (pgfplots) from `summary_all_runs.csv`. |
 | `analysis/three_runs_analysis.py`, `three_runs.json` | Analysis of the three earlier runs (A, B, C). |
 | `analysis/make_pgf_figs.py` | Generates the pgfplots figure sources from `three_runs.json`. |
@@ -42,6 +43,7 @@ or recompute the paper's numbers is here; model weights are not distributed. BUS
    ```bash
    python3 analysis/multiseed_analysis.py experiments/multiseed_results/runs experiments/multiseed_results
    python3 analysis/calibration_analysis.py experiments/multiseed_results
+   python3 analysis/dedup_sensitivity.py /path/to/Dataset_BUSI_with_GT experiments/multiseed_results 4
    python3 analysis/make_multiseed_figs.py experiments/multiseed_results figures_src
    ```
 
