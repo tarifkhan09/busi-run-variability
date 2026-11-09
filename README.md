@@ -59,3 +59,11 @@ or recompute the paper's numbers is here; model weights are not distributed. BUS
   from one documented notebook, and the paper uses runs A–C only as motivation.
 - Model weights are not included (checkpoints were deleted after evaluation); every reported number can be
   recomputed from the saved per-case scores.
+
+## Changes after submission
+
+- `BreastCancerConf.ipynb`, cell 2: fixed a constant name (`cv2.RGB2BGR` → `cv2.COLOR_RGB2BGR`) that made
+  the dataset-building branch crash, and made the BUSI download skip itself when BUSI is already present
+  (with a clear error if neither BUSI nor `kaggle.json` is found). The preprocessing itself is unchanged;
+  rebuilding from the original BUSI images gives 437 benign and 210 malignant crops and exactly the
+  partition in `experiments/multiseed_results/split.csv`. No result in the repository changed.
